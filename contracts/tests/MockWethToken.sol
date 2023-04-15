@@ -7,4 +7,8 @@ contract MockWethToken is ERC20('Wrapped Ether', 'WETH') {
   constructor() {
     _mint(msg.sender, 1000000000 ether);
   }
+
+  function mint(uint256 _amount) external {
+    _mint(msg.sender, _amount);
+  }
 }
