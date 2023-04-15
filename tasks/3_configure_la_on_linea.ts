@@ -1,17 +1,7 @@
-import { writeFileSync } from 'fs';
-import { BigNumber } from 'ethers';
 import { HardhatUserConfig, task } from 'hardhat/config';
 import {
-  TestTokenRecipient__factory,
-  IERC20__factory,
-  ILiquidityLayerRouter__factory,
   IInterchainGasPaymaster__factory,
   LiquidityAggregator__factory,
-  SeaportInterface__factory,
-  GasRouter__factory,
-  SampleERC721__factory,
-  NFTMarket__factory,
-  MockWethToken__factory,
   HypERC20Collateral__factory,
 } from '../typechain';
 import { HardhatRuntimeEnvironment } from 'hardhat/types';
