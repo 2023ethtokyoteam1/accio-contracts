@@ -61,7 +61,7 @@ contract NFTMarket is ERC721Holder, ReentrancyGuard {
     emit OfferCancelled(_tokenId);
   }
 
-  function getOffer(uint256 _tokenId) external returns (Offer memory) {
+  function getOffer(uint256 _tokenId) external view returns (Offer memory) {
     return offers[_tokenId];
   }
 
