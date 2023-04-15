@@ -7,6 +7,11 @@ import '@typechain/hardhat';
 import 'hardhat-gas-reporter';
 import 'solidity-coverage';
 import { LiquidityAggregator__factory } from './typechain';
+import './tasks/1_deploy_on_linea';
+import './tasks/2_deploy_on_mumbai';
+import './tasks/3_configure_la_on_linea';
+import './tasks/4_execute_buy_on_linea';
+import './tasks/101_create_offers_on_linea';
 
 dotenv.config();
 
@@ -55,21 +60,23 @@ const config: HardhatUserConfig = {
         // blockNumber: 452839 // linea
       },
       accounts:
-        process.env.PRIVATE_KEY !== undefined && process.env.BUYER_KEY !== undefined && process.env.SELLER_KEY !== undefined
+        process.env.PRIVATE_KEY !== undefined &&
+        process.env.BUYER_KEY !== undefined &&
+        process.env.SELLER_KEY !== undefined
           ? [
-            {
-              privateKey: process.env.PRIVATE_KEY,
-              balance: '1000000000000000000000',
-            },
-            {
-              privateKey: process.env.BUYER_KEY,
-              balance: '1000000000000000000000',
-            },
-            {
-              privateKey: process.env.SELLER_KEY,
-              balance: '1000000000000000000000',
-            },
-          ]
+              {
+                privateKey: process.env.PRIVATE_KEY,
+                balance: '1000000000000000000000',
+              },
+              {
+                privateKey: process.env.BUYER_KEY,
+                balance: '1000000000000000000000',
+              },
+              {
+                privateKey: process.env.SELLER_KEY,
+                balance: '1000000000000000000000',
+              },
+            ]
           : [],
       // chainId: 80001, // mumbai
       chainId: 5, // goerli
@@ -81,6 +88,10 @@ const config: HardhatUserConfig = {
     },
     mumbai: {
       url: process.env.MUMBAI_URL || '',
+      accounts: process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    linea: {
+      url: process.env.LINEA_URL || '',
       accounts: process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
     },
   },
