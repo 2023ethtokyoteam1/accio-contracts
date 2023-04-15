@@ -1,0 +1,8 @@
+{
+  "name": "accio-nft-contracts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:2023ethtokyoteam1/accio-nft-contracts.git",
+  "author": "liayoo <lia.yoo@smartcontract.com>",
+  "license": "MIT"
+}
